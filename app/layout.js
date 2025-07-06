@@ -4,7 +4,7 @@ import "./globals.css";
 import Provider from "./provider";
 
 export const metadata = {
-  title: "Vibe Coder",
+  title: "Vibe Coder-By Bharath",
   description: "Made by Bharath Kumar",
   icons: {
     icon: "/logo.png",

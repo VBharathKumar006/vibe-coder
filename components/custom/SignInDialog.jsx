@@ -60,7 +60,7 @@ function SignInDialog({ openDialog, closeDialog }) {
                 className="bg-blue-500 text-white hover:bg-blue-400 mt-3"
                 onClick={() => googleLogin()}
               >
-                Signin In With Google
+                Signin with Google
               </Button>
               <p>{Lookup.SIGNIn_AGREEMENT_TEXT}</p>
             </div>
