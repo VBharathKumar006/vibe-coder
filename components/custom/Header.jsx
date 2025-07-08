@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react'; // Import useState
 import { Button } from '../ui/button';
 import Colors from '@/data/Colors';
 import { UserDetailContext } from '@/context/UserDetailContext';
@@ -9,19 +9,23 @@ import { Download, Rocket } from 'lucide-react';
 import { useSidebar } from '../ui/sidebar';
 import { usePathname } from 'next/navigation';
 import { ActionContext } from '@/context/ActionContext';
+import SignInDialog from './SignInDialog'; // Import SignInDialog
 
 function Header() {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
   const { action, setAction } = useContext(ActionContext);
   const { toggleSidebar } = useSidebar();
   const pathname = usePathname();
+  const [openSignInDialog, setOpenSignInDialog] = useState(false); // State for SignInDialog
+
   const onActionBtn =(actn) => {
     setAction({
       actionType: actn,
       timeStamp: Date.now()
     })
-
+    
   }
+
   return (
     <div className="p-4 flex justify-between items-center">
       <Link href={'/'}>
@@ -29,12 +33,13 @@ function Header() {
       </Link>
       {!userDetail?.name ? (
         <div className="flex gap-5">
-          <Button variant="ghost">Sign In</Button>
+          <Button variant="ghost" onClick={() => setOpenSignInDialog(true)}>Sign In</Button> {/* Open dialog on click */}
           <Button
             className="text-white"
             style={{
               backgroundColor: Colors.BLUE,
             }}
+            onClick={() => setOpenSignInDialog(true)} // Also open dialog for "Get Started"
           >
             Get Started
           </Button>
@@ -69,6 +74,12 @@ function Header() {
           )}
         </div>
       )}
+
+      {/* Render SignInDialog */}
+      <SignInDialog
+        openDialog={openSignInDialog}
+        closeDialog={setOpenSignInDialog}
+      />
     </div>
   );
 }
