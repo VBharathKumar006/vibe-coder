@@ -4,7 +4,7 @@ Vibe Coder is an application that helps developers write, generate, and manage c
 
 ## Live Demo
 
-Visit the live application: [https://vibe-coder-ten.vercel.app/](https://vibe-coder-ten.vercel.app/)
+Visit the live application: [https://vibe-coder-ten.vercel.app/](https://vibe-coder-bharath.vercel.app/)
 
 ## Features
 
